@@ -3,6 +3,7 @@ import Header from '../elements/Header';
 import Hero from '../elements/Hero';
 import MostPicked from '../elements/MostPicked'
 import Categories from '../elements/Categories';
+import Testimony from '../elements/Testimony';
 
 // Json
 import dataLandingPage from '../json/landingPage.json';
@@ -21,7 +22,8 @@ export default class LandingPage extends Component {
                 <Header {...this.props}></Header>
                 <Hero data={dataLandingPage.hero} refMostPicked={this.refMostPicked}/>
                 <MostPicked data={dataLandingPage.mostPicked} refMostPicked={this.refMostPicked}/>
-                <Categories data={dataLandingPage.categories} />
+                <Categories data={dataLandingPage.categories}/>
+                <Testimony data={dataLandingPage.testimonial}/>
             </>
         );
     }
