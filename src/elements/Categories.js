@@ -5,7 +5,7 @@ export default function Categories({ data }) {
     return data.map((category, catIndex) => {
         return (
             <section className='container' key={`category-${catIndex}`}>
-                <h4 className='mb-3 font-weight-medium'>&{category.name}</h4>
+                <h4 className='mb-3 font-weight-medium'>{category.name}</h4>
                 <div className='container-grid'>
                     {category.items.length === 0 ? (
                         <div className='row'>
