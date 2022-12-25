@@ -33,7 +33,6 @@ export default function Button(props) {
 
   if (props.type === "link") {
     if (props.isExternal) {
-        console.log('A TAG')
       return (
         <a
           href={props.href}
@@ -46,7 +45,6 @@ export default function Button(props) {
         </a>
       );
     } else {
-        console.log('LINK')
       return (
         <Link
           to={props.href}
@@ -59,7 +57,6 @@ export default function Button(props) {
       );
     }
   }
-  console.log('button')
 
   return (
     <button
