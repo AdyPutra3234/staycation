@@ -9,14 +9,14 @@ export default function Footer() {
         <div className='container'>
             <div className='row'>
 
-                <div className='col-auto mr-2'>
+                <div className='col-5 mr-2'>
                     <IconText/>
                     <p className='brand-tagline'>
                         We kaboom your beauty holiday instantly and memorable.
                     </p>
                 </div>
 
-                <div className='col-2 mr-3'>
+                <div className='col-2 mr-4'>
                     <h6 className='mt-2'>
                         For Beinners
                     </h6>
@@ -33,7 +33,7 @@ export default function Footer() {
                     </ul>
                 </div>
 
-                <div className='col-2 mr-3'>
+                <div className='col-2'>
                     <h6 className='mt-2'>
                         Explore Us
                     </h6>
@@ -50,7 +50,7 @@ export default function Footer() {
                     </ul>
                 </div>
 
-                <div className='col-2 mr-3'>
+                <div className='col-auto'>
                     <h6 className='mt-2'>
                         Connect Us
                     </h6>
