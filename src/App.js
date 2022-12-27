@@ -1,10 +1,12 @@
 import React from "react"
-import LandingPage from "./pages/LandingPage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
+
+import LandingPage from "./pages/LandingPage";
+import DetailPage from "./pages/DetailPage";
+import CheckoutPage from "./pages/CheckoutPage";
 
 // Style
 import '../src/assets/scss/style.scss';
-import DetailPage from "./pages/DetailPage";
 
 function App() {
   return (
@@ -13,6 +15,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<LandingPage location={window.location}/>}/>
           <Route exact path="/properties/:id" element={<DetailPage location={window.location}/>}/>
+          <Route path="/checkout" element={<CheckoutPage/>} />
         </Routes>
       </Router>
     </div>
