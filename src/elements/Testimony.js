@@ -6,14 +6,13 @@ import Button from '../components/Button';
 import TestimonyAccent from '../assets/images/testimonial-frame.jpg';
 
 export default function Testimony({data}) {
-  console.log(data)
   return (
     <Fade bottom>
       <section className='container'>
         <div className='row align-items-center'>
           <div className='col-auto' style={{marginRight: 78}}>
             <div className='testimonial-hero' style={{margin: '30px 0 0 30px'}}>
-              <img src={data.imageUrl} alt='Testimonial' className='position-absolute' style={{zIndex: 1}} />
+              <img src={`${process.env.REACT_APP_BASE_URL}/${data.imageUrl}`} alt='Testimonial' className='position-absolute' style={{zIndex: 1}} />
               <img src={TestimonyAccent} alt='Frame' className='position-absolute' style={{margin: '-30px 0 0 -30px'}} />
             </div>
           </div>

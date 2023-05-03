@@ -95,6 +95,7 @@
 
   .card {
       border-radius: 15px;
+      z-index: 99;
       
       &.bordered {
         border: 1px solid $gray-200;

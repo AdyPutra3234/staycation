@@ -7,7 +7,7 @@ export default function MostPicked(props) {
   return (
     <div ref={props.refMostPicked}>
         <Fade bottom>
-            <section className='container' ref={props.refMostPicked}>
+            <section className='container'>
                 <h4 className='mb-3'>Most Picked</h4>
                 <div className='container-grid'>
                     {props.data.map((item, index) => {
@@ -20,11 +20,11 @@ export default function MostPicked(props) {
                                             <span className='font-weight-light'> per {item.unit}</span>
                                         </div>
                                         <figure className='img-wrapper'>
-                                            <img src={item.imageUrl} alt={item.name} className='img-cover' />
+                                            <img src={`${process.env.REACT_APP_BASE_URL}/${item.imageId[0].imageUrl}`} alt={item.name} className='img-cover' />
                                         </figure>
                                         <div className='meta-wrapper'>
                                             <Button type="link" className="stretched-link d-block text-white" href={`/properties/${item._id}`}>
-                                                <h5>{item.name}</h5>
+                                                <h5>{item.title}</h5>
                                             </Button>
                                             <span>
                                                 {item.city}, {item.country}

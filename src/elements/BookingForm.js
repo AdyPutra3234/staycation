@@ -13,8 +13,8 @@ export default class BookingForm extends Component {
             data: {
                 duration: 1,
                 date: {
-                    startDate: new Date(),
-                    endDate: new Date(),
+                    startDate: new Date().toISOString(),
+                    endDate: new Date().toISOString(),
                     key: 'selection'
                 }
             }
@@ -31,9 +31,9 @@ export default class BookingForm extends Component {
         });
     }
 
-    componentDidUpdate(prefProps, prefState) {
+    componentDidUpdate(prefProps, prevState) {
         const { data } = this.state
-        if (prefState.data.date !== data.date) {
+        if (prevState.data.date !== data.date) {
             const startDate = new Date(data.date.startDate);
             const endDate = new Date(data.date.endDate);
             const countDuration = new Date(endDate - startDate).getDate();
@@ -46,7 +46,7 @@ export default class BookingForm extends Component {
             });
         }
 
-        if (prefState.data.duration !== data.duration) {
+        if (prevState.data.duration !== data.duration) {
             const startDate = new Date(data.date.startDate);
             const endDate = new Date(
                 startDate.setDate(startDate.getDate() + +data.duration - 1)
@@ -58,7 +58,7 @@ export default class BookingForm extends Component {
                     ...this.state.data,
                     date: {
                         ...this.state.data.date,
-                        endDate: endDate
+                        endDate: endDate.toISOString()
                     }
                 }
             });
@@ -68,7 +68,7 @@ export default class BookingForm extends Component {
 
   render() {
     const { data } = this.state;
-    const { itemDetails, startBooking } = this.props;
+    const { itemDetails, startCheckout } = this.props;
 
     return (
     <Fade right delay={500}>
@@ -109,7 +109,9 @@ export default class BookingForm extends Component {
             hasShadow
             isPrimary
             isBlock
-            onClick={startBooking}
+            type="button"
+            onClick={() => startCheckout(data)}
+            // href="/checkout"
         >
             Continue to Book
         </Button>

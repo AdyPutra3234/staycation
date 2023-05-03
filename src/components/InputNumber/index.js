@@ -9,14 +9,12 @@ export default function InputNumber(props) {
 
   const onChange = e => {
     let value = String(e.target.value)
-    if (prefix) value = value.replace(prefix);
-    if (suffix) value = value.replace(suffix);
     
-    if (+value <= max && +value >= min) {
+    if (value <= max && value >= min) {
         props.onChange({
             target: {
                 name,
-                value: +value,
+                value: value,
             }
         });
     }
@@ -27,7 +25,7 @@ export default function InputNumber(props) {
         onChange({
             target: {
                 name,
-                value: +value - 1,
+                value: value - 1,
             }
         });
   }
@@ -37,7 +35,7 @@ export default function InputNumber(props) {
         onChange({
             target: {
                 name,
-                value: +value + 1,
+                value: value + 1,
             }
         });
   }
@@ -56,7 +54,7 @@ export default function InputNumber(props) {
                 name={name}
                 readOnly
                 className='form-control'
-                placeholder={placeholder ? placeholder : '0'}
+                placeholder={placeholder ? placeholder : '1'}
                 value={`${prefix}${value}${suffix}${isSuffixPlural && value > 1 ? "s" : ""}`}
                 onChange={onChange}/>
             <div className='input-group-append'>

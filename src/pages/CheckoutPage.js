@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Fade } from 'react-reveal';
 
 import Button from '../components/Button';
@@ -12,20 +13,32 @@ import Completed from '../elements/Completed';
 import Header from '../elements/Header';
 import Payment from '../elements/Payment';
 
+import withRouter from '../utility/withRouter';
+
 import itemDetails from '../json/itemDetails.json';
 
-export default class CheckoutPage extends Component {
-  state = {
-    data: {
-      firstName: '',
-      lastName: '',
-      email: '',
-      phone: '',
-      proofPayment: '',
-      bankName: '',
-      bankHolder: ''
-    },
-  };
+class CheckoutPage extends Component {
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+      data: {
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        proofPayment: '',
+        bankName: '',
+        bankHolder: ''
+      },
+    };
+
+    this.onNavigate = this.onNavigate.bind(this);
+  }
+
+  onNavigate(path) {
+    this.props.navigate(path);
+  }
 
   onChange = event => {
     this.setState({
@@ -46,6 +59,8 @@ export default class CheckoutPage extends Component {
     const checkout = {
       duration: 3
     }
+    // const itemDetails = this.props.itemDetails;
+
     const steps = {
       bookingInformation: {
         title: 'Booking Information',
@@ -117,10 +132,10 @@ export default class CheckoutPage extends Component {
 
                           <Button
                             className='btn'
-                            type='link'
+                            type='button'
                             isBlock
                             isLight
-                            href={`/properties/${itemDetails._id}`}
+                            onClick={() => this.onNavigate(-1)}
                           >
                             Cancel
                           </Button>
@@ -180,3 +195,10 @@ export default class CheckoutPage extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+   checkout: state.checkout,
+   page: state.dataPage.detail
+})
+
+export default withRouter(connect(mapStateToProps)(CheckoutPage));
